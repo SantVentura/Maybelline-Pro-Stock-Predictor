@@ -1,0 +1,124 @@
+/* =========================================================
+   MEG & STV — EDICIÓN MONOCROMÁTICA DE ENTREGA
+   Botones blancos de borde negro, hover sin saltos.
+   La línea blanca va bajo el texto (no bajo todo el botón).
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+}
+
+/* Acciones principales: blanco + borde negro en reposo. */
+:is(
+  .primary-button, .user-setup-button, .continue-button,
+  .inventory-add-button, .inventory-history-button,
+  .stock-alert-primary, .stock-alert-secondary,
+  .inventory-empty-state button, .inventory-restock-row button,
+  .manual-register-row button, .setup-search-empty button,
+  .product-card-action, .product-buy-now,
+  .use-product-button, .restock-button,
+  .store-hero-button, .store-buy-button, .store-empty-button,
+  .cart-checkout-button, .cart-empty button,
+  .checkout-confirm-button, .checkout-empty-state button,
+  .checkout-success-primary, .checkout-success-secondary,
+  .invoice-primary-button, .invoice-secondary-button,
+  .orders-card-actions button, .orders-empty button,
+  .product-detail-cart-button, .product-detail-buy-now,
+  .product-detail-empty button,
+  .retail-pickup-button, .kit-modal-primary,
+  .product-added-popup button
+):not(:disabled) {
+  background: #ffffff;
+  background-image: none;
+  color: #0a0a0a;
+  border: 1px solid #0a0a0a;
+  box-shadow: none;
+  transform: none;
+  text-decoration: none;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* Al pasar el cursor solo se invierte el contraste y aparece la raya blanca. */
+:is(
+  .primary-button, .user-setup-button, .continue-button,
+  .inventory-add-button, .inventory-history-button,
+  .stock-alert-primary, .stock-alert-secondary,
+  .inventory-empty-state button, .inventory-restock-row button,
+  .manual-register-row button, .setup-search-empty button,
+  .product-card-action, .product-buy-now,
+  .use-product-button, .restock-button,
+  .store-hero-button, .store-buy-button, .store-empty-button,
+  .cart-checkout-button, .cart-empty button,
+  .checkout-confirm-button, .checkout-empty-state button,
+  .checkout-success-primary, .checkout-success-secondary,
+  .invoice-primary-button, .invoice-secondary-button,
+  .orders-card-actions button, .orders-empty button,
+  .product-detail-cart-button, .product-detail-buy-now,
+  .product-detail-empty button,
+  .retail-pickup-button, .kit-modal-primary,
+  .product-added-popup button
+):hover:not(:disabled) {
+  background: #0a0a0a;
+  background-image: none;
+  color: #ffffff;
+  border-color: #0a0a0a;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+  text-decoration-line: underline;
+  text-decoration-color: rgba(255,255,255,.76);
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+/* Componentes que usan botones ya activados: no perder estados de selección. */
+.store-buy-button.is-added:not(:hover),
+.product-detail-cart-button.is-added:not(:hover),
+.product-card-action.setup:has(svg):not(:hover),
+.retail-pickup-button.chosen:not(:hover),
+.orders-card-actions .orders-receive-button:not(:hover):not(:disabled) {
+  background: #0a0a0a;
+  color: #ffffff;
+  border-color: #0a0a0a;
+}
+
+/* Los estados deshabilitados siempre deben seguir siendo evidentes. */
+:is(.primary-button, .user-setup-button, .continue-button,
+  .inventory-add-button, .inventory-history-button,
+  .store-buy-button, .product-card-action, .checkout-confirm-button,
+  .cart-checkout-button, .retail-pickup-button):disabled {
+  cursor: not-allowed;
+  opacity: .48;
+}
+
+/* Sin desplazamientos al interactuar; conserva el foco del teclado. */
+:is(.primary-button, .continue-button, .inventory-add-button,
+  .inventory-history-button, .manual-register-row button,
+  .store-hero-button, .store-buy-button, .cart-checkout-button,
+  .checkout-confirm-button, .stock-alert-primary,
+  .inventory-empty-state button, .inventory-restock-row button,
+  .invoice-primary-button, .product-card-action):focus-visible {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 3px;
+}
+
+/* Enlaces en pestañas: línea negra, visible sobre el encabezado blanco. */
+.setup-header .app-nav-link:hover:not(:disabled) {
+  background: transparent;
+  color: #0a0a0a;
+  border-bottom-color: #0a0a0a;
+  transform: none;
+  text-decoration: none;
+}
+
+/* Íconos exclusivamente gráficos: hover negro sin subrayado innecesario. */
+:is(.checkout-captcha-piece, .stock-alert-close, .author-credits-close,
+  .kit-modal-head button, .cart-quantity button):hover:not(:disabled) {
+  text-decoration: none;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button { transition: none !important; }
+}

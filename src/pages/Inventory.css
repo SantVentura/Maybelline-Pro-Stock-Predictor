@@ -1,0 +1,332 @@
+/* ======================================================
+   INVENTORY - STOCK ALERT
+====================================================== */
+
+.stock-alert-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(10, 10, 10, 0.52);
+
+  backdrop-filter: blur(6px);
+}
+
+.stock-alert-modal {
+  position: relative;
+
+  width: min(460px, 100%);
+
+  padding: 34px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+
+  background: var(--white);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.22);
+
+  animation: stock-alert-in 0.22s ease;
+}
+
+.stock-alert-close {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f4f4f5;
+
+  color: var(--muted);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.stock-alert-close:hover {
+  background: var(--black);
+
+  color: var(--white);
+
+  transform: rotate(4deg);
+}
+
+.stock-alert-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 16px;
+
+  background: var(--ui-accent-soft);
+
+  color: var(--ui-accent);
+}
+
+.stock-alert-eyebrow {
+  margin-bottom: 8px;
+
+  color: var(--ui-accent);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.stock-alert-modal h2 {
+  margin-bottom: 10px;
+
+  color: var(--black);
+
+  font-family: "Roboto", sans-serif;
+
+  font-size: 32px;
+  font-weight: 500;
+
+  letter-spacing: -0.03em;
+}
+
+.stock-alert-text {
+  margin-bottom: 26px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.stock-alert-actions {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 10px;
+}
+
+.stock-alert-secondary,
+.stock-alert-primary {
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border-radius: 12px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.stock-alert-secondary {
+  border: 1px solid var(--border);
+
+  background: var(--white);
+
+  color: var(--black);
+}
+
+.stock-alert-secondary:hover {
+  border-color: var(--black);
+
+  color: var(--black);
+
+  transform: translateY(-1px);
+}
+
+.stock-alert-primary {
+  border: 1px solid var(--black);
+
+  background: var(--white);
+
+  color: var(--black);
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.stock-alert-primary:hover {
+  background: var(--black);
+  color: var(--white);
+
+  border-color: var(--black);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.16);
+}
+
+@keyframes stock-alert-in {
+  from {
+    opacity: 0;
+
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 600px) {
+  .stock-alert-overlay {
+    align-items: flex-end;
+
+    padding: 16px;
+  }
+
+  .stock-alert-modal {
+    padding: 28px 22px 22px;
+
+    border-radius: 22px;
+  }
+
+  .stock-alert-modal h2 {
+    font-size: 28px;
+  }
+
+  .stock-alert-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .stock-alert-primary,
+  .stock-alert-secondary {
+    width: 100%;
+  }
+}
+/* Preferencias por variante e historial */
+.inventory-minimum-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.inventory-minimum-row select {
+  max-width: 160px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--black);
+  font-size: 11px;
+  cursor: pointer;
+}
+.inventory-minimum-row select:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 2px; }
+.inventory-minimum-row select:disabled { cursor: not-allowed; opacity: 0.5; }
+.inventory-heading-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.inventory-history-button {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--black);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.inventory-history-button:hover { border-color: var(--black); color: var(--black); }
+@media (max-width: 600px) {
+  .inventory-heading-actions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+  .inventory-history-button, .inventory-add-button { width: 100%; }
+}
+@media (max-width: 390px) {
+  .inventory-heading-actions { grid-template-columns: 1fr; }
+}
+
+
+/* Variantes prioritarias para reposición */
+.inventory-restock-panel { border: 1px solid #dedee0; border-radius: 22px;
+  background: #fafafa; padding: 24px; margin: 24px 0; }
+.inventory-restock-heading { display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.inventory-restock-heading p { font-size: 9px; color: var(--ui-accent); font-weight: 800; letter-spacing: .13em; }
+.inventory-restock-heading h2 { font-family: "Roboto", sans-serif; font-size: clamp(21px,3vw,27px);
+  font-weight: 500; margin-top: 5px; }
+.inventory-restock-heading > span { color: var(--ui-accent); background: var(--ui-accent-soft);
+  padding: 7px 10px; border-radius: 999px; font-size: 10px; font-weight: 800; }
+.inventory-restock-list { display: grid; gap: 9px; }
+.inventory-restock-row { display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 13px 15px; border: 1px solid var(--border); border-radius: 13px; background: white; }
+.inventory-restock-row > div { min-width: 0; display: grid; gap: 5px; }
+.inventory-restock-row strong { font-size: 12px; }
+.inventory-restock-row span { font-size: 11px; color: var(--muted); }
+.inventory-restock-row button { background: var(--white); color: var(--black); padding: 10px 16px;
+  border: 1px solid var(--black); border-radius: 11px; font-size: 11px; font-weight: 700; cursor: pointer;
+  transition: background-color .2s ease, color .2s ease; }
+.inventory-restock-row button:hover:not(:disabled) { background: var(--black); color: var(--white); }
+.inventory-restock-row button:disabled { opacity: .5; cursor: not-allowed; }
+@media (max-width: 600px) {
+  .inventory-restock-panel { padding: 16px; border-radius: 18px; }
+  .inventory-restock-row { padding: 12px; }
+}
+
+
+/* V1.1 — alerta compacta, con acento rojo cuando se está agotando el kit. */
+.stock-alert-modal {
+  width: min(360px, 100%);
+  max-height: min(640px, calc(100dvh - 24px));
+  overflow-y: auto;
+  border-bottom: 5px solid #d92d20;
+}
+
+/* Estado inicial sin artículos. */
+.inventory-empty-state { display: grid; justify-items: center; gap: 12px; text-align: center;
+  margin-top: 16px; padding: 52px 22px; border: 1px dashed var(--border);
+  background: var(--white); border-radius: 18px; }
+.inventory-empty-state > svg { color: var(--ui-accent); }
+.inventory-empty-state h3 { font-size: 20px; }
+.inventory-empty-state p { max-width: 460px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.inventory-empty-state button { padding: 12px 20px; border: 1px solid var(--black); border-radius: 99px;
+  color: var(--black); background: var(--white); font-weight: 700; cursor: pointer; transition: background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.inventory-empty-state button:hover { background: var(--black); color: var(--white); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.15); }

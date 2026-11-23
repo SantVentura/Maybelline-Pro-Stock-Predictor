@@ -1,0 +1,162 @@
+/* Aviso cuando la búsqueda en el kit inicial no encuentra resultados. */
+.setup-search-empty {
+  margin: 16px auto;
+  padding: 38px 22px;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.setup-search-empty h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.setup-search-empty p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+.setup-search-empty button {
+  border: 1px solid var(--black);
+  border-radius: 99px;
+  padding: 11px 18px;
+  color: var(--black);
+  background: var(--white);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.setup-search-empty button:hover {
+  background: var(--black);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .15);
+}
+
+/* ==========================================
+   REGISTRO MANUAL DE PRODUCTOS
+========================================== */
+
+.manual-register-row {
+  width: 100%;
+  margin: 20px 0 28px;
+  padding: 20px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  background: #fafafa;
+
+  border: 1px solid #e4e4e6;
+  border-bottom: 3px solid var(--ui-accent, #0a0a0a);
+  border-radius: 10px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.manual-register-row:hover {
+  border-color: #c6c6c9;
+  border-bottom-color: var(--ui-accent, #0a0a0a);
+
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+}
+
+/* TEXTO */
+
+.manual-register-row span {
+  color: var(--black, #0a0a0a);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* BOTÓN DE REGISTRO */
+
+.manual-register-row button {
+  min-height: 44px;
+  padding: 12px 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--black, #0a0a0a);
+  border-radius: 999px;
+
+  background: var(--white, #ffffff);
+  color: var(--black, #0a0a0a);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.manual-register-row button:hover {
+  background: var(--black);
+  color: var(--white);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.manual-register-row button:active {
+  transform: translateY(0);
+}
+
+.manual-register-row button:focus-visible {
+  outline: 2px solid var(--ui-accent, #0a0a0a);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+  .manual-register-row {
+    flex-direction: column;
+    align-items: stretch;
+
+    margin: 16px 0 24px;
+    padding: 20px 18px;
+
+    gap: 14px;
+  }
+
+  .manual-register-row span {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .manual-register-row button {
+    width: 100%;
+    min-height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .manual-register-row,
+  .manual-register-row button {
+    transition: none;
+  }
+}

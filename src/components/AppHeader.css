@@ -1,0 +1,57 @@
+/* Marca larga adaptada al encabezado y navegación móvil. */
+.setup-header .setup-brand { min-width: 0; }
+.setup-header .setup-brand > span:last-child { line-height: 1.25; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .setup-header { flex-wrap: wrap; gap: 14px; }
+  .setup-header .setup-brand { flex: 1 1 100%; }
+  .setup-header .app-nav { width: 100%; justify-content: space-between; }
+  .setup-header .app-nav-link { flex: 1; padding: 9px 7px; }
+}
+@media (max-width: 400px) {
+  .setup-header { padding: 16px; }
+}
+
+/* La estrella conserva su apariencia, aunque admita el gesto oculto en demo. */
+.setup-brand-secret { border: 0; padding: 0; cursor: default; font: inherit; flex-shrink: 0; }
+.setup-brand-secret:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 3px; }
+
+/* Pestañas editoriales para navegación; los botones de acción siguen redondeados. */
+.setup-header .app-nav { gap: clamp(6px, 1.2vw, 18px); }
+.setup-header .app-nav-link {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 11px 12px 9px;
+  font-size: 12px;
+  font-weight: 650;
+  transition: color .2s ease, border-color .2s ease;
+}
+.setup-header .app-nav-link:hover { background: transparent; color: var(--black); border-bottom-color: #d1d1d4; }
+.setup-header .app-nav-link.active { background: transparent; color: var(--black); border-bottom-color: var(--ui-accent); }
+.setup-header .app-nav-link:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 3px; }
+@media (max-width: 700px) {
+  .setup-header .app-nav { gap: 0; }
+  .setup-header .app-nav-link { padding: 10px 7px 9px; font-size: clamp(10px, 2.5vw, 12px); }
+}
+
+/* Título: pulsación prolongada secreta para consultar la autoría. */
+.setup-brand-title-secret {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: 1.25;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: default;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.setup-brand-title-secret:focus-visible { outline: 2px solid var(--ui-accent, #0a0a0a); outline-offset: 4px; border-radius: 3px; }

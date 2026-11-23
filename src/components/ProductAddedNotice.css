@@ -1,0 +1,9 @@
+/* Confirmación compacta cuando se registra un producto en Mi Kit. */
+.product-added-overlay { position:fixed; inset:0; z-index:1600; display:flex; align-items:center; justify-content:center; background:rgba(8,8,8,.35); padding:16px; }
+.product-added-popup { width:min(360px,100%); max-height:min(640px,calc(100dvh - 32px)); overflow:auto; background:#fff; border-radius:16px; padding:30px 22px 22px; box-shadow:0 20px 60px rgba(0,0,0,.18); text-align:center; }
+.product-added-check { display:grid; place-items:center; margin:0 auto 13px; width:54px; height:54px; border-radius:50%; background:#eaf7ef; color:#16803a; font-size:26px; font-weight:900; }
+.product-added-popup h2 { margin:0 0 8px; color:var(--black); font-size:23px; }
+.product-added-popup p { margin:0 0 20px; color:var(--muted); font-size:13px; line-height:1.5; overflow-wrap:anywhere; }
+.product-added-popup p strong { color:var(--black); }
+.product-added-popup button { width:100%; min-height:43px; border:0; border-radius:99px; background:var(--black); color:#fff; font-size:12px; font-weight:800; cursor:pointer; }
+.product-added-popup button:hover { background:var(--black); }

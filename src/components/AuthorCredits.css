@@ -1,0 +1,77 @@
+/* Easter egg de autoría: overlay independiente de las pantallas. */
+.author-credits-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(7, 7, 12, .7);
+  backdrop-filter: blur(6px);
+}
+.author-credits-modal {
+  position: relative;
+  width: min(440px, 100%);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  padding: 40px 30px 30px;
+  border-radius: 18px;
+  border: 1px solid #343437;
+  background: #101011;
+  color: white;
+  box-shadow: 0 25px 90px rgba(0,0,0,.42);
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  animation: author-credits-enter .2s ease-out;
+}
+.author-credits-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #29292b;
+  color: #dddddf;
+  cursor: pointer;
+}
+.author-credits-close:hover { background: #0a0a0a; color: #fff; }
+.author-credits-close:focus-visible { outline: 2px solid #c6c6c9; outline-offset: 3px; }
+.author-credits-icon {
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #272729;
+  color: #c6c6c9;
+}
+.author-credits-eyebrow, .author-credits-label {
+  margin: 0 0 12px;
+  color: #c6c6c9;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+.author-credits-modal h2 {
+  margin: 0 0 10px;
+  font-size: clamp(23px, 5vw, 30px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  color: white;
+}
+.author-credits-version { margin: 0; color: #a7a7ab; font-size: 12px; }
+.author-credits-divider { height: 1px; background: #343437; margin: 24px 0; }
+.author-credits-label { margin-bottom: 9px; color: #a7a7ab; }
+.author-credits-authors { font-size: 25px; font-weight: 700; margin: 0 0 22px; color: white; }
+.author-credits-copyright { font-size: 11px; line-height: 1.6; margin: 0 0 20px; color: #bcbcc0; }
+.author-credits-disclaimer { padding: 13px 16px; border-radius: 10px; background: #1d1d1f; font-size: 11px; line-height: 1.65; color: #a7a7ab; margin: 0; }
+@keyframes author-credits-enter { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (max-width: 600px) { .author-credits-modal { padding: 40px 20px 24px; border-radius: 14px; } }
+@media (prefers-reduced-motion: reduce) { .author-credits-modal { animation: none; } }

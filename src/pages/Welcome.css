@@ -1,0 +1,208 @@
+
+/* ========================================
+   SALUDO PERSONALIZADO
+======================================== */
+
+.welcome-personal-greeting {
+  display: block;
+  position: relative;
+  margin: 0 0 18px;
+  padding: 0;
+  color: #ffffff;
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   MARCA Y NOMBRE
+======================================== */
+
+.welcome .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100% - 40px);
+}
+
+.welcome .brand-mark {
+  flex-shrink: 0;
+}
+
+.welcome .brand-name {
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+======================================== */
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ========================================
+   ORGANIZACIÓN DE TEXTOS
+======================================== */
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+}
+
+/* Saludo: Hola, usuario */
+
+.welcome-text .welcome-personal-greeting {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Texto superior */
+
+.welcome-text .eyebrow {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Título principal */
+
+.welcome-text h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.15;
+}
+
+/* Descripción */
+
+.welcome-description {
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+/* ========================================
+   BOTÓN PRINCIPAL
+======================================== */
+
+.primary-button {
+  margin-top: 8px;
+}
+
+/* ========================================
+   ADAPTACIÓN PARA MÓVILES
+======================================== */
+
+@media (max-width: 600px) {
+
+  .welcome .brand {
+    left: 20px;
+    right: 20px;
+    top: 24px;
+    max-width: calc(100% - 40px);
+    gap: 10px;
+  }
+
+  .welcome .brand-mark {
+    flex: 0 0 28px;
+  }
+
+  .welcome .brand-name {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .welcome-content {
+    gap: 20px;
+  }
+
+  .welcome-text {
+    gap: 16px;
+  }
+
+  .welcome-text .welcome-personal-greeting {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .welcome-text .eyebrow {
+    font-size: 11px;
+  }
+
+  .welcome-text h1 {
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: 1.15;
+  }
+
+  .welcome-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .primary-button {
+    margin-top: 6px;
+  }
+}
+/* CORREGIR SUPERPOSICIÓN DE MARCA Y SALUDO */
+
+.welcome-content {
+  position: relative;
+  padding-top: 90px;
+}
+
+/* Marca superior */
+.welcome .brand {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  z-index: 2;
+}
+
+/* Evitar que el saludo invada la marca */
+.welcome-text {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Saludo */
+.welcome-personal-greeting {
+  position: relative;
+  display: block;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .welcome-content {
+    padding-top: 85px;
+  }
+
+  .welcome .brand {
+    top: 20px;
+  }
+
+  .welcome-text {
+    gap: 15px;
+  }
+}
